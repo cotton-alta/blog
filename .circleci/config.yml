@@ -1,9 +1,9 @@
 version: 2
 jobs:
   deploy-development:
+    working_directory: ~/app
     docker:
       - image: circleci/node:14.15.3
-    working_directory: ./app
     steps:
       - checkout
       - restore_cache:
@@ -12,9 +12,9 @@ jobs:
       - run: mv ./dotenv/.env.development ./.env
       - run: ./deploy.sh
   deploy-production:
+    working_directory: ~/app
     docker:
       - image: circleci/node:14.15.3
-    working_directory: ./app
     steps:
       - checkout
       - restore_cache:
