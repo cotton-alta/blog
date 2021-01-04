@@ -22,6 +22,7 @@ const config = {
   region: process.env.AWS_DEFAULT_REGION,
   headers: {
     /* 'Cache-Control': 'max-age=315360000, no-transform, public', */
+    'x-amz-acl': 'private'
   },
 
   // 適切なデフォルト値 - これらのファイル及びディレクトリは gitignore されている
