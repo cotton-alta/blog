@@ -1,0 +1,36 @@
+version: 2
+jobs:
+  deploy-development:
+    docker:
+      - image: circleci/node:14.15.3
+    step:
+      - checkout
+      - restore_chache:
+        key:
+          - yarn-{{ checksum "package.json" }}
+      - run: mv ./dotenv/.env.development ./.env
+      - run: ./deploy.sh
+  deploy-production:
+    docker:
+      - image: circleci/node:14.15.3
+    step:
+      - checkout
+      - restore_chache:
+        key:
+          - yarn-{{ checksum "package.json" }}
+      - run: mv ./dotenv/.env.production ./.env
+      - run: ./deploy.sh
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy-development:
+        filters:
+          branches:
+            only:
+              - develop
+      - deploy-production:
+        filters:
+          branches:
+            only:
+              - main
