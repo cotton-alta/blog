@@ -7,8 +7,8 @@ jobs:
     step:
       - checkout
       - restore_chache:
-        key:
-          - yarn-{{ checksum "package.json" }}
+          key:
+            - yarn-{{ checksum "package.json" }}
       - run: mv ./dotenv/.env.development ./.env
       - run: ./deploy.sh
   deploy-production:
@@ -18,8 +18,8 @@ jobs:
     step:
       - checkout
       - restore_chache:
-        key:
-          - yarn-{{ checksum "package.json" }}
+          key:
+            - yarn-{{ checksum "package.json" }}
       - run: mv ./dotenv/.env.production ./.env
       - run: ./deploy.sh
 workflows:
