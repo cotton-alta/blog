@@ -9,8 +9,11 @@ jobs:
           keys:
             - yarn-{{ checksum "app/package.json" }}
       - run:
+          command: |
+            chmod +x ./app
+      - run:
           name: change env and deploy
-          working_directory: ~/app
+          working_directory: app
           command: |
             mv ./dotenv/.env.development ./.env
             ls
