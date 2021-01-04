@@ -6,7 +6,7 @@ jobs:
     working_directory: ./app
     steps:
       - checkout
-      - restore_chache:
+      - restore_cache:
           key:
             - yarn-{{ checksum "package.json" }}
       - run: mv ./dotenv/.env.development ./.env
@@ -17,7 +17,7 @@ jobs:
     working_directory: ./app
     steps:
       - checkout
-      - restore_chache:
+      - restore_cache:
           key:
             - yarn-{{ checksum "package.json" }}
       - run: mv ./dotenv/.env.production ./.env
