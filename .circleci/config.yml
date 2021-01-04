@@ -27,12 +27,12 @@ workflows:
   deploy:
     jobs:
       - deploy-development:
-        filters:
-          branches:
-            only:
-              - develop
+          filters:
+            branches:
+              only:
+                - develop
       - deploy-production:
-        filters:
-          branches:
-            only:
-              - main
+          filters:
+            branches:
+              only:
+                - main
