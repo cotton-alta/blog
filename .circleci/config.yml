@@ -1,27 +1,37 @@
 version: 2
 jobs:
   deploy-development:
-    working_directory: ~/app
     docker:
       - image: circleci/node:14.15.3
     steps:
       - checkout
       - restore_cache:
           keys:
-            - yarn-{{ checksum "package.json" }}
-      - run: mv ./dotenv/.env.development ./.env
-      - run: ./deploy.sh
+            - yarn-{{ checksum "app/package.json" }}
+      - run:
+          name: change env
+          working_directory: app
+          command: mv ./dotenv/.env.development ./.env
+      - run:
+          name: deploy
+          working_direcotry: app
+          command: ./deploy.sh
   deploy-production:
-    working_directory: ~/app
     docker:
       - image: circleci/node:14.15.3
     steps:
       - checkout
       - restore_cache:
           keys:
-            - yarn-{{ checksum "package.json" }}
-      - run: mv ./dotenv/.env.production ./.env
-      - run: ./deploy.sh
+            - yarn-{{ checksum "app/package.json" }}
+      - run:
+          name: change env
+          working_directory: app
+          command: mv ./dotenv/.env.production ./.env
+      - run:
+          name: deploy
+          working_direcotry: app
+          command: ./deploy.sh
 workflows:
   version: 2
   deploy:
