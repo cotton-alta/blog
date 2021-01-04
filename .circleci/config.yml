@@ -16,13 +16,7 @@ jobs:
           working_directory: app
           command: |
             mv ./dotenv/.env.development ./.env
-            ls
-            pwd
             ./deploy.sh
-            # - run:
-            #     name: deploy
-            #     working_direcotry: app
-            #     command: |
   deploy-production:
     docker:
       - image: circleci/node:14.15.3
@@ -32,13 +26,14 @@ jobs:
           keys:
             - yarn-{{ checksum "app/package.json" }}
       - run:
-          name: change env
-          working_directory: app
-          command: mv ./dotenv/.env.production ./.env
+          command: |
+            chmod +x ./app/deploy.sh
       - run:
-          name: deploy
-          working_direcotry: app
-          command: ./deploy.sh
+          name: change env and deploy
+          working_directory: app
+          command: |
+            mv ./dotenv/.env.production ./.env
+            ./deploy.sh
 workflows:
   version: 2
   deploy:
