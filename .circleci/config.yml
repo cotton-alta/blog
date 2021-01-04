@@ -12,6 +12,10 @@ jobs:
           command: |
             chmod +x ./app/deploy.sh
       - run:
+          command: |
+            echo 'export AWS_CLOUDFRONT=$DEV_CLOUDFRONT' >> $BASH_ENV
+            source $BASH_ENV
+      - run:
           name: change env and deploy
           working_directory: app
           command: |
