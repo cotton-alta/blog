@@ -14,6 +14,7 @@ jobs:
       - run:
           command: |
             echo 'export AWS_CLOUDFRONT=$DEV_CLOUDFRONT' >> $BASH_ENV
+            echo 'export AWS_BUCKET_NAME=$DEV_BUCKET_NAME' >> $BASH_ENV
             source $BASH_ENV
       - run:
           name: change env and deploy
@@ -32,6 +33,11 @@ jobs:
       - run:
           command: |
             chmod +x ./app/deploy.sh
+      - run:
+          command: |
+            echo 'export AWS_CLOUDFRONT=$PROD_CLOUDFRONT' >> $BASH_ENV
+            echo 'export AWS_BUCKET_NAME=$PROD_BUCKET_NAME' >> $BASH_ENV
+            source $BASH_ENV
       - run:
           name: change env and deploy
           working_directory: app
