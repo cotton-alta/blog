@@ -10,7 +10,7 @@ jobs:
             - yarn-{{ checksum "app/package.json" }}
       - run:
           command: |
-            chmod +x ./app
+            chmod +x ./app/deploy.sh
       - run:
           name: change env and deploy
           working_directory: app
