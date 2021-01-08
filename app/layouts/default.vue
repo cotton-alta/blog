@@ -84,11 +84,10 @@ html {
 }
 
 .main {
-  background: #999999;
-  height: 100px;
+  /* background: #999999; */
 }
 
 .side {
-  background: #888888;
+  /* background: #888888; */
 }
 </style>
