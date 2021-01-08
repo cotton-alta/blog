@@ -1,6 +1,9 @@
 <template>
   <div :class="$style.wrapper">
-    <span :class="$style.title">{{ title }}</span>
+    <b-card>
+      <span :class="$style.title">{{ title }}</span>
+      <span :class="$style.date">{{ date }}</span>
+    </b-card>
   </div>
 </template>
 
@@ -12,6 +15,10 @@ export default Vue.extend({
     title: {
       type: String,
       default: ""
+    },
+    date: {
+      type: String,
+      default: ""
     }
   }
 });
@@ -20,13 +27,15 @@ export default Vue.extend({
 <style module>
 .wrapper {
   width: 98%;
-  height: 40px;
-  line-height: 40px;
   margin: 0 auto;
-  border-bottom: 2px solid #888888;
 }
 
 .title {
-  font-size: 20px;
+  display: block;
+}
+
+.date {
+  display: block;
+  color: #777777;
 }
 </style>

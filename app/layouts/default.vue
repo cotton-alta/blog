@@ -89,7 +89,6 @@ html {
 }
 
 .side {
-  background: #777777;
-  height: 100px;
+  background: #888888;
 }
 </style>
