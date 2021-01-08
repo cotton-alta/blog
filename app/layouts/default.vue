@@ -1,13 +1,19 @@
 <template>
   <div>
     <Header />
-    <Nuxt />
+    <div class="container">
+      <div class="row">
+        <Nuxt class="main col-sm-12 col-lg-9" />
+        <SideBar class="side col-sm-12 col-lg-3" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Header from "~/components/layout/Header.vue";
+import SideBar from "~/components/layout/SideBar.vue";
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
 Vue.use(BootstrapVue);
@@ -15,7 +21,8 @@ Vue.use(IconsPlugin);
 
 export default Vue.extend({
   components: {
-    Header
+    Header,
+    SideBar
   }
 });
 </script>
@@ -74,5 +81,15 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.main {
+  background: #999999;
+  height: 100px;
+}
+
+.side {
+  background: #777777;
+  height: 100px;
 }
 </style>
