@@ -22,7 +22,6 @@ export default Vue.extend({
   width: 98%;
   height: 40px;
   line-height: 40px;
-  margin: 0 auto;
   border-bottom: 2px solid #888888;
 }
 

@@ -1,19 +1,23 @@
 <template>
-  <div>
+  <div class="page-wrapper">
     <div v-for="article in view_item" :key="article.id">
       <ArticleCard
+        class="article-card"
         :title="article.title"
         :date="article.date"
         :content="article.content"
+        :href="article.href"
       />
     </div>
-    <b-pagination
-      v-model="current_page"
-      :total-rows="rows"
-      :per-page="per_page"
-      align="center"
-    >
-    </b-pagination>
+    <div class="paginate-wrapper">
+      <b-pagination
+        v-model="current_page"
+        :total-rows="rows"
+        :per-page="per_page"
+        align="center"
+      >
+      </b-pagination>
+    </div>
   </div>
 </template>
 
@@ -27,10 +31,10 @@ export default Vue.extend({
   },
   data() {
     let res_articles = [
-      { title: "タイトル", date: "2021-01-01", content: "本文" },
-      { title: "タイトル", date: "2021-01-01", content: "本文" },
-      { title: "タイトル", date: "2021-01-01", content: "本文" },
-      { title: "タイトル", date: "2021-01-01", content: "本文" },
+      { title: "タイトル", date: "2021-01-01", content: "本文", href: "#" },
+      { title: "タイトル", date: "2021-01-01", content: "本文", href: "#" },
+      { title: "タイトル", date: "2021-01-01", content: "本文", href: "#" },
+      { title: "タイトル", date: "2021-01-01", content: "本文", href: "#" },
     ];
     let res_per_page = 10;
     return {
@@ -53,5 +57,16 @@ export default Vue.extend({
 });
 </script>
 
-<style module>
+<style>
+.page-wrapper {
+  margin: 20px 0px;
+}
+
+.article-card {
+  margin: 10px auto;
+}
+
+.paginate-wrapper {
+  margin: 20px 0px;
+}
 </style>

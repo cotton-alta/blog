@@ -4,6 +4,7 @@
       <span :class="$style.date">{{ date }}</span>
       <span :class="$style.content">{{ content }}</span>
     </b-card>
+    <a :href="href" :class="$style.link"></a>
   </div>
 </template>
 
@@ -23,6 +24,10 @@ export default Vue.extend({
     content: {
       type: String,
       default: ""
+    },
+    href: {
+      type: String,
+      default: ""
     }
   }
 });
@@ -30,8 +35,8 @@ export default Vue.extend({
 
 <style module>
 .wrapper {
+  position: relative;
   width: 98%;
-  margin: 0 auto;
 }
 
 .date {
@@ -41,5 +46,13 @@ export default Vue.extend({
 
 .content {
   display: block;
+}
+
+.link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 </style>
