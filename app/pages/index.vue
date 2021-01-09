@@ -31,8 +31,8 @@ export default Vue.extend({
   },
   data() {
     let res_articles = [
-      { title: "タイトル", date: "2021-01-01", content: "本文", href: "#" },
-      { title: "タイトル", date: "2021-01-01", content: "本文", href: "#" },
+      { title: "タイトル", date: "2021-01-01", content: "本文", href: "/articles/01" },
+      { title: "タイトル", date: "2021-01-01", content: "本文", href: "/articles/02" },
       { title: "タイトル", date: "2021-01-01", content: "本文", href: "#" },
       { title: "タイトル", date: "2021-01-01", content: "本文", href: "#" },
     ];
