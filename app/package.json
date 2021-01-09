@@ -9,7 +9,7 @@
     "generate": "nuxt-ts generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:js",
-    "md": "yarn run processmd \"posts/markdown/*.md\" --outputDir posts/json --summaryOutput posts/summary.json"
+    "md": "yarn run processmd \"../markdown/*.md\" --outputDir posts/json --summaryOutput posts/summary.json"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
