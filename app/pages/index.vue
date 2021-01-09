@@ -26,13 +26,13 @@ export default Vue.extend({
     ArticleCard
   },
   data() {
-    const res_articles = [
+    let res_articles = [
       { title: "タイトル", date: "2021-01-01", content: "本文" },
       { title: "タイトル", date: "2021-01-01", content: "本文" },
       { title: "タイトル", date: "2021-01-01", content: "本文" },
       { title: "タイトル", date: "2021-01-01", content: "本文" },
     ];
-    const res_per_page = 10;
+    let res_per_page = 10;
     return {
       articles: res_articles,
       current_page: 1,
@@ -41,7 +41,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    rows() {
+    rows: function(): Number {
       return this.articles.length
     }
   },
