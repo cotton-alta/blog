@@ -26,23 +26,26 @@ import Vue from 'vue';
 import ArticleCard from "~/components/ui/ArticleCard.vue";
 import { fileMap as article_list } from "~/posts/summary.json";
 
-// interface ArticleJsonType {
-//   [key: string]: string;
-//   id: string;
-//   title: string;
-//   created_at: string;
-//   updated_at: string;
-//   description: string;
-//   tags: string;
-//   dir: string;
-//   base: string;
-//   ext: string;
-//   sourceBase: string;
-//   sourceExt: string;
-// }
+type Json = typeof article_list;
+
+interface ArticleJsonType {
+  [key: string]: any;
+  id: string;
+  title: string;
+  created_at: string;
+  updated_at: string;
+  description: string;
+  tags: string;
+  dir: string;
+  base: string;
+  ext: string;
+  sourceBase: string;
+  sourceExt: string;
+}
 
 interface ArticleType {
-  id: Number;
+  [key: string]: any;
+  id: string;
   title: string;
   date: string;
   description: string;
@@ -68,19 +71,20 @@ export default Vue.extend({
       return Object.keys(this.articles).length
     },
     articles(): ArticleType[] {
-      const article_array = Object.keys(article_list).map((article: string) => {
+      const article_array: ArticleType[] = Object.keys(article_list).map((key: any) => {
+        let article = article_list[key] as ArticleJsonType;
         return {
-          id: article_list[article].id,
-          title: article_list[article].title,
-          date: article_list[article].created_at.replace("T00:00:00.000Z", ""),
-          description: article_list[article].description,
-          tags: article_list[article].tags,
-          href: "articles?base=" + article_list[article].base.replace(".json", "")
+          id: article.id,
+          title: article.title,
+          date: article.created_at.replace("T00:00:00.000Z", ""),
+          description: article.description,
+          tags: article.tags,
+          href: "articles?base=" + article.base.replace(".json", "")
         };
       });
       article_array.sort((a: ArticleType, b: ArticleType) => {
-        const a_id = a.id as number;
-        const b_id = b.id as number;
+        const a_id: number = a.id as unknown as number;
+        const b_id: number = b.id as unknown as number;
         if(a_id > b_id) {
           return 1;
         } else {
