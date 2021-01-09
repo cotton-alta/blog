@@ -28,21 +28,6 @@ import { fileMap as article_list } from "~/posts/summary.json";
 
 type Json = typeof article_list;
 
-interface ArticleJsonType {
-  [key: string]: any;
-  id: string;
-  title: string;
-  created_at: string;
-  updated_at: string;
-  description: string;
-  tags: string;
-  dir: string;
-  base: string;
-  ext: string;
-  sourceBase: string;
-  sourceExt: string;
-}
-
 interface ArticleType {
   [key: string]: any;
   id: string;
@@ -54,9 +39,7 @@ interface ArticleType {
 }
 
 export default Vue.extend({
-  components: {
-    ArticleCard
-  },
+  components: { ArticleCard },
   data() {
     const res_per_page = 3;
     const res_view_item: ArticleType[] = [];
@@ -72,14 +55,14 @@ export default Vue.extend({
     },
     articles(): ArticleType[] {
       const article_array: ArticleType[] = Object.keys(article_list).map((key: any) => {
-        let article = article_list[key] as ArticleJsonType;
+        let article = article_list[key];
         return {
           id: article.id,
           title: article.title,
           date: article.created_at.replace("T00:00:00.000Z", ""),
           description: article.description,
           tags: article.tags,
-          href: "articles?base=" + article.base.replace(".json", "")
+          href: "article?base=" + article.base.replace(".json", "")
         };
       });
       article_array.sort((a: ArticleType, b: ArticleType) => {

@@ -3,8 +3,8 @@
     <Header />
     <div class="container">
       <div class="row">
-        <Nuxt class="main col-sm-12 col-lg-9" />
-        <SideBar class="side col-sm-12 col-lg-3" />
+        <Nuxt class="col-sm-12 col-lg-9" />
+        <SideBar class="col-sm-12 col-lg-3" />
       </div>
     </div>
   </div>
@@ -14,10 +14,6 @@
 import Vue from "vue";
 import Header from "~/components/layout/Header.vue";
 import SideBar from "~/components/layout/SideBar.vue";
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-
-Vue.use(BootstrapVue);
-Vue.use(IconsPlugin);
 
 export default Vue.extend({
   components: {
@@ -81,13 +77,5 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
-}
-
-.main {
-  /* background: #999999; */
-}
-
-.side {
-  /* background: #888888; */
 }
 </style>

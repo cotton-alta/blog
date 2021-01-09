@@ -39,8 +39,17 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    "bootstrap-vue/nuxt"
+    'bootstrap-vue/nuxt'
   ],
+
+  bootstrapVue: {
+    componentPlugins: [
+      'LayoutPlugin',
+      'NavbarPlugin',
+      'CardPlugin',
+      'PaginationPlugin'
+    ]
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
