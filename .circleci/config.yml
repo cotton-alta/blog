@@ -20,7 +20,6 @@ jobs:
           name: change env and deploy
           working_directory: app
           command: |
-            yarn md
             mv ./dotenv/.env.development ./.env
             ./deploy.sh
   deploy-production:
@@ -43,7 +42,6 @@ jobs:
           name: change env and deploy
           working_directory: app
           command: |
-            yarn md
             mv ./dotenv/.env.production ./.env
             ./deploy.sh
 workflows:

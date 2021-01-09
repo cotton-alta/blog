@@ -9,5 +9,6 @@
 
 [ ! -d "node_modules" ] && yarn install
 
+yarn md
 yarn generate
 yarn run gulp deploy
