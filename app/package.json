@@ -8,7 +8,8 @@
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js"
+    "lint": "yarn lint:js",
+    "md": "yarn run processmd \"posts/markdown/*.md\" --outputDir posts/json --summaryOutput posts/summary.json"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
@@ -21,7 +22,8 @@
     "gulp-awspublish": "^4.1.2",
     "gulp-cloudfront-invalidate-aws-publish": "^1.0.0",
     "marked": "^1.2.7",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "processmd": "^4.6.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
