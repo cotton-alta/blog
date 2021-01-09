@@ -23,7 +23,8 @@
     "gulp-cloudfront-invalidate-aws-publish": "^1.0.0",
     "marked": "^1.2.7",
     "nuxt": "^2.14.6",
-    "processmd": "^4.6.0"
+    "processmd": "^4.6.0",
+    "webpack-bundle-analyzer": "^4.3.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",

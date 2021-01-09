@@ -62,7 +62,7 @@ export default Vue.extend({
           date: article.created_at.replace("T00:00:00.000Z", ""),
           description: article.description,
           tags: article.tags,
-          href: "article?base=" + article.base.replace(".json", "")
+          href: "articles?base=" + article.base.replace(".json", "")
         };
       });
       article_array.sort((a: ArticleType, b: ArticleType) => {
