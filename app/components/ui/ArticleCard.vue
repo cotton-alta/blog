@@ -1,6 +1,7 @@
 <template>
   <div :class="$style.wrapper">
     <b-card :title="title">
+      <Badge text="hello" />
       <span :class="$style.date">{{ date }}</span>
       <span :class="$style.content">{{ content }}</span>
     </b-card>
@@ -10,8 +11,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Badge from "~/components/ui/Badge.vue";
 
 export default Vue.extend({
+  components: {
+    Badge
+  },
   props: {
     title: {
       type: String,
