@@ -2,7 +2,7 @@
   <div :class="$style.wrapper">
     <b-card :title="title">
       <div :class="$style.tags" v-for="tag in tags" :key="tag.id">
-        <Badge :text="tag" />
+        <h5><Badge :text="tag" /></h5>
       </div>
       <span :class="$style.date">{{ date }}</span>
       <span :class="$style.content">{{ content }}</span>

@@ -35,8 +35,20 @@ article_array.sort((a: ArticleType, b: ArticleType) => {
   }
 });
 
+let tag_array: string[] = [];
+article_array.forEach((article: ArticleType) => {
+  let tags = article.tags.split(", ");
+  tags.forEach((tag: string) => {
+    if(tag_array.includes(tag)) return;
+    tag_array.push(tag);
+  });
+});
+
+const article_result = "const article_list = " + JSON.stringify(article_array) + ";";
+const tag_result = "const tags = " + JSON.stringify(tag_array) + ";";
+
 fs.writeFile("posts/summary.js",
-  "const article_list = " + JSON.stringify(article_array) + ";export {article_list}",
+  article_result + tag_result + "export {article_list, tags}",
   (err: any) => {
     if(err) throw err;
     console.log("出力成功");

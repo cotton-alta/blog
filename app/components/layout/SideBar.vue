@@ -9,7 +9,10 @@
           :href="article.href"
         />
       </div>
-    <SideHeadline title="カテゴリ" />
+    <SideHeadline title="カテゴリ" class="side-headline" />
+    <div class="tags" v-for="tag in tags" :key="tag.id">
+      <h5><Badge :text="tag" /></h5>
+    </div>
   </div>
 </template>
 
@@ -17,12 +20,17 @@
 import Vue from 'vue';
 import SideHeadline from "~/components/ui/SideHeadline.vue";
 import SideCard from "~/components/ui/SideCard.vue";
-import { article_list } from "~/posts/summary.js";
+import Badge from "~/components/ui/Badge.vue";
+import { article_list, tags } from "~/posts/summary.js";
 
 export default Vue.extend({
   components: {
     SideHeadline,
-    SideCard
+    SideCard,
+    Badge
+  },
+  data() {
+    return { tags }
   },
   computed: {
     articles() {
@@ -43,5 +51,10 @@ export default Vue.extend({
 
 .side-card {
   margin: 10px 0px;
+}
+
+.tags {
+  display: inline-block;
+  margin-right: 5px;
 }
 </style>

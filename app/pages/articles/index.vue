@@ -1,8 +1,11 @@
 <template>
   <div class="page-wrapper">
     <div class="date">{{ date }}</div>
-    <h1 class="headline">{{ title }}</h1>
-    <div v-html="content"></div>
+    <h1 class="title">{{ title }}</h1>
+    <div class="tags" v-for="tag in tags" :key="tag.id">
+      <h5><Badge :text="tag" /></h5>
+    </div>
+    <div class="content" v-html="content"></div>
   </div>
 </template>
 
@@ -11,13 +14,14 @@ import Vue from 'vue';
 import marked from "marked";
 
 export default Vue.extend({
-  data() {
-    let mark = "## 見出し \n 本文";
+  asyncData({ route }) {
+    let article = require(`~/posts/json/${route.query.base}.json`);
     return {
-      date: "2020-01-01",
-      title: "タイトル",
-      content: marked(mark)
-    }
+      date: article.created_at.replace("T00:00:00.000Z", ""),
+      title: article.title,
+      content: marked(article.bodyContent),
+      tags: article.tags.split(", ")
+    };
   }
 });
 </script>
@@ -32,6 +36,15 @@ export default Vue.extend({
 }
 
 .title {
+  margin: 20px 0px;
+}
 
+.tags {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.content {
+  margin-top: 20px;
 }
 </style>
