@@ -3,6 +3,7 @@
     <b-badge pill variant="secondary">
       {{ text }}
     </b-badge>
+    <a class="link" :href="href"></a>
   </div>
 </template>
 
@@ -15,12 +16,26 @@ export default Vue.extend({
       type: String,
       default: ""
     }
+  },
+  computed: {
+    href() {
+      return `/categories?tag=${this.text}`;
+    }
   }
 });
 </script>
 
 <style>
 .wrapper {
+  position: relative;
   display: inline-block;
+}
+
+.link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 </style>

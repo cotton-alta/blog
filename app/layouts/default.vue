@@ -7,6 +7,7 @@
         <SideBar class="col-sm-12 col-lg-3" />
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -77,5 +78,9 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.container {
+  min-height: calc(100vh - 50px);
 }
 </style>
