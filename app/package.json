@@ -22,8 +22,10 @@
     "gulp-awspublish": "^4.1.2",
     "gulp-cloudfront-invalidate-aws-publish": "^1.0.0",
     "marked": "^1.2.7",
+    "node-sass": "^5.0.0",
     "nuxt": "^2.14.6",
     "processmd": "^4.6.0",
+    "sass-loader": "^10.1.0",
     "webpack-bundle-analyzer": "^4.3.0"
   },
   "devDependencies": {

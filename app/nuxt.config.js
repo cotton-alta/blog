@@ -20,6 +20,7 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/index.scss'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -49,7 +50,9 @@ export default {
       'CardPlugin',
       'PaginationPlugin',
       'BadgePlugin'
-    ]
+    ],
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
