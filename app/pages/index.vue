@@ -25,13 +25,14 @@
 <script lang="ts">
 import Vue from 'vue';
 import ArticleCard from "~/components/ui/ArticleCard.vue";
-import { fileMap as article_list } from "~/posts/summary.json";
+// import { fileMap as article_list } from "~/posts/summary.json";
+import { article_list } from "~/posts/summary.js";
 
-type Json = typeof article_list;
+// type Json = typeof article_list;
 
 interface ArticleType {
-  [key: string]: any;
-  id: string;
+  // [key: string]: any;
+  id: number;
   title: string;
   date: string;
   description: string;
@@ -47,7 +48,8 @@ export default Vue.extend({
     return {
       view_item : res_view_item,
       current_page: 0,
-      per_page: res_per_page
+      per_page: res_per_page,
+      articles: article_list
     }
   },
   methods: {
@@ -58,30 +60,30 @@ export default Vue.extend({
   computed: {
     rows(): Number {
       return Object.keys(this.articles).length
-    },
-    articles(): ArticleType[] {
-      const article_array: ArticleType[] = Object.keys(article_list).map((key: any) => {
-        let article = article_list[key];
-        return {
-          id: article.id,
-          title: article.title,
-          date: article.created_at.replace("T00:00:00.000Z", ""),
-          description: article.description,
-          tags: article.tags,
-          href: "articles?base=" + article.base.replace(".json", "")
-        };
-      });
-      article_array.sort((a: ArticleType, b: ArticleType) => {
-        const a_id: number = a.id as unknown as number;
-        const b_id: number = b.id as unknown as number;
-        if(a_id > b_id) {
-          return 1;
-        } else {
-          return -1;
-        }
-      });
-      return article_array;
     }
+    // articles(): ArticleType[] {
+    //   const article_array: ArticleType[] = Object.keys(article_list).map((key: any) => {
+    //     let article = article_list[key];
+    //     return {
+    //       id: article.id,
+    //       title: article.title,
+    //       date: article.created_at.replace("T00:00:00.000Z", ""),
+    //       description: article.description,
+    //       tags: article.tags,
+    //       href: "articles?base=" + article.base.replace(".json", "")
+    //     };
+    //   });
+    //   article_array.sort((a: ArticleType, b: ArticleType) => {
+    //     const a_id: number = a.id as unknown as number;
+    //     const b_id: number = b.id as unknown as number;
+    //     if(a_id < b_id) {
+    //       return 1;
+    //     } else {
+    //       return -1;
+    //     }
+    //   });
+    //   return article_array;
+    // }
   },
   watch: {
     current_page(val) {

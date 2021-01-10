@@ -10,5 +10,6 @@
 [ ! -d "node_modules" ] && yarn install
 
 yarn md
+ts-node posts_edit.ts
 yarn generate
 yarn run gulp deploy

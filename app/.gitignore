@@ -90,5 +90,6 @@ sw.*
 *.swp
 
 summary.json
+summary.js
 
 json/
