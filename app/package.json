@@ -24,7 +24,6 @@
     "marked": "^1.2.7",
     "nuxt": "^2.14.6",
     "processmd": "^4.6.0",
-    "ts-node": "^9.1.1",
     "webpack-bundle-analyzer": "^4.3.0"
   },
   "devDependencies": {
