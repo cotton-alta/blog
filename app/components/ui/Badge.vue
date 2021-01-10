@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <b-badge pill variant="secondary">
       {{ text }}
     </b-badge>
@@ -19,5 +19,8 @@ export default Vue.extend({
 });
 </script>
 
-<style module>
+<style>
+.wrapper {
+  display: inline-block;
+}
 </style>

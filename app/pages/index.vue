@@ -7,6 +7,7 @@
         :date="article.date"
         :content="article.description"
         :href="article.href"
+        :tags="tag_array(article.tags)"
       />
     </div>
     <div class="paginate-wrapper">
@@ -47,6 +48,11 @@ export default Vue.extend({
       view_item : res_view_item,
       current_page: 0,
       per_page: res_per_page
+    }
+  },
+  methods: {
+    tag_array(tag_str: string) {
+      return tag_str.split(", ");
     }
   },
   computed: {
