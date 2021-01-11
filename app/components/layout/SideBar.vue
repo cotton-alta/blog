@@ -9,7 +9,7 @@
           :href="article.href"
         />
       </div>
-    <SideHeadline title="カテゴリ" class="side-headline" />
+    <SideHeadline title="タグ" class="side-headline" />
     <div class="tags" v-for="tag in tags" :key="tag.id">
       <h5><Badge :text="tag" /></h5>
     </div>

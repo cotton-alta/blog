@@ -1,5 +1,6 @@
 <template>
   <div class="page-wrapper">
+    <div class="headline">{{ $route.query.tag }}</div>
     <div v-for="article in view_item" :key="article.id">
       <ArticleCard
         class="article-card"
@@ -87,5 +88,14 @@ export default Vue.extend({
 
 .paginate-wrapper {
   margin: 20px 0px;
+}
+
+.headline {
+  width: 98%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 30px;
+  margin: 0 auto;
+  border-bottom: 2px solid #888888;
 }
 </style>
