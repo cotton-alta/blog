@@ -6,6 +6,7 @@
       <h5><Badge :text="tag" /></h5>
     </div>
     <div class="content" v-html="content"></div>
+    <TwitterButton class="twitter" :title="title" :base="$route.query.base" />
   </div>
 </template>
 
@@ -13,8 +14,12 @@
 import Vue from 'vue';
 import marked from "marked";
 import hljs from "highlightjs";
+import TwitterButton from "~/components/ui/TwitterButton.vue";
 
 export default Vue.extend({
+  components: {
+    TwitterButton
+  },
   created() {
     marked.setOptions({
       langPrefix: "hljs language-",
@@ -62,5 +67,9 @@ export default Vue.extend({
 
 .content {
   margin-top: 20px;
+}
+
+.twitter {
+  margin-top: 30px;
 }
 </style>
