@@ -12,16 +12,32 @@
 <script lang="ts">
 import Vue from 'vue';
 import marked from "marked";
+import hljs from "highlightjs";
 
 export default Vue.extend({
-  asyncData({ route }) {
-    let article = require(`~/posts/json/${route.query.base}.json`);
+  created() {
+    marked.setOptions({
+      langPrefix: "hljs language-",
+      highlight: function(code, lang) {
+        return hljs.highlightAuto(code, [lang]).value
+      }
+    });
+  },
+  // asyncData({ route }) {
+  data() {
+    let article = require(`~/posts/json/${this.$route.query.base}.json`);
     return {
       date: article.created_at.replace("T00:00:00.000Z", ""),
       title: article.title,
-      content: marked(article.bodyContent),
+      // content: marked(article.bodyContent),
       tags: article.tags.split(", ")
     };
+  },
+  computed: {
+    content() {
+      let article = require(`~/posts/json/${this.$route.query.base}.json`);
+      return marked(article.bodyContent);
+    }
   }
 });
 </script>

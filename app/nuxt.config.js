@@ -15,12 +15,15 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      // { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/solarized-dark.min.css' }
     ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-    '@/assets/index.scss'
+    '@/assets/index.scss',
+    // { src: '~/node_modules/highlight.js/styles/atom-one-dark.css', lang: 'css' },
+    '~/node_modules/highlight.js/styles/atom-one-dark.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
