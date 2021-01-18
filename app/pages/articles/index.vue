@@ -67,6 +67,7 @@ export default Vue.extend({
 
 .content {
   margin-top: 20px;
+  word-break: break-all;
 }
 
 .twitter {
