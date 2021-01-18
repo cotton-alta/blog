@@ -67,6 +67,9 @@ export default Vue.extend({
 
 .content {
   margin-top: 20px;
+}
+
+.content a {
   word-break: break-all;
 }
 
