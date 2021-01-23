@@ -1,13 +1,16 @@
 <template>
   <div class="page-wrapper">
-    <h4>coming soon ...</h4>
+    <ProfileImg />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import ProfileImg from '~/components/ui/ProfileImg.vue';
 
-export default Vue.extend({});
+export default Vue.extend({
+  components: { ProfileImg }
+});
 </script>
 
 <style>
