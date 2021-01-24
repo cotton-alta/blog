@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <div class="headline">{{ $route.query.tag }}</div>
+    <PageHeadline :title="$route.query.tag" />
     <div v-for="article in view_item" :key="article.id">
       <ArticleCard
         class="article-card"
@@ -25,8 +25,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import ArticleCard from "~/components/ui/ArticleCard.vue";
-import { article_list } from "~/posts/summary.js";
+import ArticleCard from '~/components/ui/ArticleCard.vue';
+import { article_list } from '~/posts/summary.js';
+import PageHeadline from '~/components/ui/PageHeadline.vue';
 
 interface ArticleType {
   id: number;
@@ -38,7 +39,10 @@ interface ArticleType {
 }
 
 export default Vue.extend({
-  components: { ArticleCard },
+  components: {
+    ArticleCard,
+    PageHeadline
+  },
   asyncData({route}) {
     const tag = route.query.tag;
     let articles = article_list.filter(article => {
@@ -88,14 +92,5 @@ export default Vue.extend({
 
 .paginate-wrapper {
   margin: 20px 0px;
-}
-
-.headline {
-  width: 98%;
-  height: 40px;
-  line-height: 40px;
-  font-size: 30px;
-  margin: 0 auto;
-  border-bottom: 2px solid #888888;
 }
 </style>
