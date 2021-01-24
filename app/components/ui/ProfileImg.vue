@@ -19,5 +19,6 @@ export default Vue.extend({});
 
 .img-box {
   width: 100%;
+  border-radius: 50%;
 }
 </style>
