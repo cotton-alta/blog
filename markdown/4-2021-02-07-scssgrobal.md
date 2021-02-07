@@ -8,6 +8,8 @@ tags: TypeScript, Scss, Nuxt.js
 ---
 
 ## 問題
+https://www.tam-tam.co.jp/tipsnote/html_css/post10708.html
+
 上のサイトのようにメディアクエリをVueファイルの中で使用しようとすると以下のようなエラーが出てきました。環境はいつもの通りNuxt.jsです。
 
 ```shell
@@ -31,7 +33,7 @@ modules: [
 ]
 ```
 
-グローバルに使用したいscssファイルを```styleResources```に登録します。
+グローバルに使用したいscssファイルを```styleResources```に登録します。今回はメディアクエリ呼び出しに関する処理を```variables.scss```という名前のファイルに記載したのでパスは以下のようになりました。
 
 ```javascript
 styleResources: {
