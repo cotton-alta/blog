@@ -39,7 +39,7 @@ interface ArticleType {
 export default Vue.extend({
   components: { ArticleCard },
   data() {
-    const res_per_page = 3;
+    const res_per_page = 10;
     const res_view_item: ArticleType[] = [];
     return {
       view_item : res_view_item,
