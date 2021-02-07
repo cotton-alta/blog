@@ -4,7 +4,7 @@ title: グローバルなScssをVueファイルの中で読み込む
 created_at: 2021-02-07
 updated_at: 2021-02-07
 description: Scssのmixin使おうとしたらエラー吐かれた話
-tags: TypeScript, Scss, Nuxt.js
+tags: Scss, Nuxt.js
 ---
 
 ## 問題
