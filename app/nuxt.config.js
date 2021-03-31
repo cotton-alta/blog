@@ -37,7 +37,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-gtag'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -59,10 +59,9 @@ export default {
     bootstrapVueCSS: false
   },
 
-  publicRuntimeConfig: {
-    googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID
-    }
+  'google-gtag': {
+    id: process.env.GOOGLE_ANALYTICS_ID,
+    debug: false,
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)

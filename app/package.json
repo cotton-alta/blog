@@ -14,7 +14,7 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
-    "@nuxtjs/google-analytics": "^2.4.0",
+    "@nuxtjs/google-gtag": "^1.0.4",
     "@types/highlightjs": "^10.1.0",
     "@types/marked": "^1.2.1",
     "bootstrap-vue": "^2.21.2",
