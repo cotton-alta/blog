@@ -3,7 +3,7 @@ id: 6
 title: GoでServerless Framework入門
 created_at: 2021-06-14
 updated_at: 2021-06-14
-description: AWSのLambda、API Gatewayを使ってAPIを生やそうとした際、Serverless Frameworkに入門したお話
+description: AWSのLambda、Amazon API Gatewayを使ってAPIを生やそうとした際、Serverless Frameworkに入門したお話
 tags: Go, Serverless Framework, AWS, Lambda, Amazon API Gateway
 ---
 
