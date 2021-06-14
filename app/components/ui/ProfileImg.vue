@@ -14,7 +14,6 @@ export default Vue.extend({});
 .img-wrapper {
   width: 100px;
   height: 100px;
-  background: #888888;
 }
 
 .img-box {
