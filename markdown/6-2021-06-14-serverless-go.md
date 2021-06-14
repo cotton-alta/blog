@@ -65,12 +65,6 @@ sls createにて生成されたディレクトリに`serverless.yml`というフ
 
 ```yaml
 functions:
-  create_point:
-    handler: bin/create_point
-    events:
-      - http:
-          path: /points
-          method: post
   hello:
     handler: bin/hello
     events:
