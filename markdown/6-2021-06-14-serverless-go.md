@@ -4,12 +4,12 @@ title: GoでServerless Framework入門
 created_at: 2021-06-14
 updated_at: 2021-06-14
 description: AWSのLambda、API Gatewayを使ってAPIを生やそうとした際、Serverless Frameworkに入門したお話
-tags: Go, Serverless Framework, AWS, Lambda, API Gateway
+tags: Go, Serverless Framework, AWS, Lambda, Amazon API Gateway
 ---
 
 ## はじめに
 
-今回の記事はAWSのLambda、API Gatewayを使ってAPIを生やそうとした際、Serverless Frameworkに入門した記録です。Serverless Frameworkとはサーバレスアプリケーションの構築、デプロイを手軽に行えるようにするためのNode.js製のフレームワークです。今回はAWSを使用しますが、AzureやGCP等のクラウドサービスにも対応しています。
+今回の記事はAWSのLambda、Amazon API Gatewayを使ってAPIを生やそうとした際、Serverless Frameworkに入門した記録です。Serverless Frameworkとはサーバレスアプリケーションの構築、デプロイを手軽に行えるようにするためのNode.js製のフレームワークです。今回はAWSを使用しますが、AzureやGCP等のクラウドサービスにも対応しています。
 
 この記事では、Serverless Frameworkを導入し、Goの基本的なアプリケーションをAWSへデプロイするところまで行います。
 
@@ -19,7 +19,7 @@ Serverless Frameworkを導入するにはnpmが必要となるので事前にイ
 
 AWS CLIの導入が終わったら、AWSコンソールにて`AdministratorAccess`ポリシーを付与したIAMユーザを事前に作成し、以下のように`~/.aws/credentials`に追記しておきます。
 
-```
+```bash
 [profile名]
 aws_access_key_id = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -98,7 +98,7 @@ serverless invoke -f hello
 }
 ```
 
-デプロイとLambda関数の実行まで行えたので、本編はここまでとなります。余裕があれば、API Gatewayで作成されたエンドポイントにも直接アクセスして確認してみましょう。
+デプロイとLambda関数の実行まで行えたので、本編はここまでとなります。余裕があれば、Amazon API Gatewayで作成されたエンドポイントにも直接アクセスして確認してみましょう。
 
 ## 余談
 
