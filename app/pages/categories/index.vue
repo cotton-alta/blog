@@ -58,7 +58,7 @@ export default Vue.extend({
       view_item : res_view_item,
       current_page: 0,
       per_page: res_per_page
-    }
+    };
   },
   methods: {
     tag_array(tag_str: string) {
@@ -67,7 +67,7 @@ export default Vue.extend({
   },
   computed: {
     rows(): number {
-      return Object.keys(this.articles).length
+      return Object.keys(this.articles).length;
     }
   },
   watch: {

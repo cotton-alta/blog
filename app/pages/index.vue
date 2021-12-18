@@ -46,7 +46,7 @@ export default Vue.extend({
       current_page: 0,
       per_page: res_per_page,
       articles: article_list
-    }
+    };
   },
   methods: {
     tag_array(tag_str: string) {
@@ -55,7 +55,7 @@ export default Vue.extend({
   },
   computed: {
     rows(): Number {
-      return Object.keys(this.articles).length
+      return Object.keys(this.articles).length;
     }
   },
   watch: {

@@ -24,11 +24,11 @@ export default Vue.extend({
         text = "[" + this.title + "]";
     return {
       twitterLink: `https://twitter.com/intent/tweet?url=${path}&text=${text}&lang=ja`
-    }
+    };
   },
   methods: {
     windowOpen: function(link: string) {
-      return window.open(link, '_blank', 'top=100,left=100,width=600,height=500')
+      return window.open(link, '_blank', 'top=100,left=100,width=600,height=500');
     }
   }
 });

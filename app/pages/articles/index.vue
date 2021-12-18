@@ -24,17 +24,15 @@ export default Vue.extend({
     marked.setOptions({
       langPrefix: "hljs language-",
       highlight: function(code, lang) {
-        return hljs.highlightAuto(code, [lang]).value
+        return hljs.highlightAuto(code, [lang]).value;
       }
     });
   },
-  // asyncData({ route }) {
   data() {
     let article = require(`~/posts/json/${this.$route.query.base}.json`);
     return {
       date: article.created_at.replace("T00:00:00.000Z", ""),
       title: article.title,
-      // content: marked(article.bodyContent),
       tags: article.tags.split(", ")
     };
   },

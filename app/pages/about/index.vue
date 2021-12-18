@@ -25,7 +25,7 @@ export default Vue.extend({
     return {
       handlename: 'コットン',
       description: '東京のとある大学の学部4年生です。webエンジニアになるため日々勉強をしています。個人開発だけではなくチーム開発にも積極的に取り組んでいます。'
-    }
+    };
   }
 });
 </script>

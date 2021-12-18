@@ -30,7 +30,7 @@ export default Vue.extend({
     Badge
   },
   data() {
-    return { tags }
+    return { tags };
   },
   computed: {
     articles() {
