@@ -1,5 +1,17 @@
 version: 2
 jobs:
+  test:
+    docker:
+      - image: circleci/node:14.15.3
+    steps:
+      - checkout
+      - restore_cache:
+        keys:
+          - yarn-{{ checksum "app/package.json" }}
+      - run:
+          command: |
+            [ ! -d "node_modules" ] && yarn install
+            yarn test
   deploy-development:
     docker:
       - image: circleci/node:14.15.3
