@@ -1,25 +1,31 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/blog/app
     docker:
       - image: circleci/node:14.15.3
     steps:
-      - checkout
+      - checkout:
+          path: ~/blog
       - restore_cache:
           keys:
-            - yarn-{{ checksum "app/package.json" }}
+            - yarn-{{ checksum "package.json" }}
       - run:
           command: |
             [ ! -d "node_modules" ] && yarn install
+            yarn md
+            yarn run ts-node posts_edit.ts
             yarn generate
   test:
+    working_directory: ~/blog/app
     docker:
       - image: circleci/node:14.15.3
     steps:
-      - checkout
+      - checkout:
+          path: ~/blog
       - restore_cache:
           keys:
-            - yarn-{{ checksum "app/package.json" }}
+            - yarn-{{ checksum "package.json" }}
       - run:
           command: |
             [ ! -d "node_modules" ] && yarn install
