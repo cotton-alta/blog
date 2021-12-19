@@ -31,16 +31,18 @@ jobs:
             [ ! -d "node_modules" ] && yarn install
             yarn test
   deploy-development:
+    working_directory: ~/blog/app
     docker:
       - image: circleci/node:14.15.3
     steps:
-      - checkout
+      - checkout:
+          path: ~/blog
       - restore_cache:
           keys:
-            - yarn-{{ checksum "app/package.json" }}
+            - yarn-{{ checksum "package.json" }}
       - run:
           command: |
-            chmod +x ./app/deploy.sh
+            chmod +x ./deploy.sh
       - run:
           command: |
             echo 'export AWS_CLOUDFRONT=$DEV_CLOUDFRONT' >> $BASH_ENV
@@ -48,21 +50,22 @@ jobs:
             source $BASH_ENV
       - run:
           name: change env and deploy
-          working_directory: app
           command: |
             mv ./dotenv/.env.development ./.env
             ./deploy.sh
   deploy-production:
+    working_directory: ~/blog/app
     docker:
       - image: circleci/node:14.15.3
     steps:
-      - checkout
+      - checkout:
+          path: ~/blog
       - restore_cache:
           keys:
-            - yarn-{{ checksum "app/package.json" }}
+            - yarn-{{ checksum "package.json" }}
       - run:
           command: |
-            chmod +x ./app/deploy.sh
+            chmod +x ./deploy.sh
       - run:
           command: |
             echo 'export AWS_CLOUDFRONT=$PROD_CLOUDFRONT' >> $BASH_ENV
@@ -70,7 +73,6 @@ jobs:
             source $BASH_ENV
       - run:
           name: change env and deploy
-          working_directory: app
           command: |
             mv ./dotenv/.env.production ./.env
             ./deploy.sh
