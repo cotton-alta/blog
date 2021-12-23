@@ -1,3 +1,5 @@
+const baseRoute = env => (env === 'GH_PAGES' ? '/blog/' : '/');
+
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
@@ -17,6 +19,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       // { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/solarized-dark.min.css' }
     ]
+  },
+
+  router: {
+    base: baseRoute(process.env.DEPLOY_ENV)
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
