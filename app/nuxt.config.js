@@ -1,4 +1,7 @@
-import settings from './settings.yml';
+import fs from 'fs';
+import yaml from 'yaml';
+const yaml_data = fs.readFileSync('./settings.yml', 'utf8');
+const settings = yaml.eval(yaml_data);
 
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
