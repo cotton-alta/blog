@@ -42,7 +42,7 @@ jobs:
             - yarn-{{ checksum "package.json" }}
       - run:
           command: |
-            chmod +x ./deploy.sh
+            chmod +x ./deploy_s3.sh
       - run:
           command: |
             echo 'export AWS_CLOUDFRONT=$DEV_CLOUDFRONT' >> $BASH_ENV
@@ -52,7 +52,7 @@ jobs:
           name: change env and deploy
           command: |
             mv ./dotenv/.env.development ./.env
-            ./deploy.sh
+            ./deploy_s3.sh
   deploy-production:
     working_directory: ~/blog/app
     docker:
@@ -65,7 +65,7 @@ jobs:
             - yarn-{{ checksum "package.json" }}
       - run:
           command: |
-            chmod +x ./deploy.sh
+            chmod +x ./deploy_s3.sh
       - run:
           command: |
             echo 'export AWS_CLOUDFRONT=$PROD_CLOUDFRONT' >> $BASH_ENV
@@ -75,7 +75,25 @@ jobs:
           name: change env and deploy
           command: |
             mv ./dotenv/.env.production ./.env
-            ./deploy.sh
+            ./deploy_s3.sh
+  deploy-gh-pages:
+    working_directory: ~/blog/app
+    docker:
+      - image: cimg/node:14.18.2
+    steps:
+      - checkout:
+          path: ~/blog
+      - restore_cache:
+          keys:
+            - yarn-{{ checksum "package.json" }}
+      - run:
+          command: |
+            chmod +x ./deploy_gh_pages.sh
+      - run:
+          name: change env and deploy
+          command: |
+            mv ./dotenv/.env.ghpages ./.env
+            ./deploy_gh_pages.sh
 workflows:
   version: 2
   build-and-test:
@@ -94,3 +112,8 @@ workflows:
             branches:
               only:
                 - main
+      - deploy-gh-pages:
+          filters:
+            branches:
+              only:
+                - gh_pages
