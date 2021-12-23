@@ -1,15 +1,11 @@
-# MyBlog
+# STATIC
 
-## markdown記事の反映手順
+**This directory is not required, you can delete it if you don't want to use it.**
 
-1. processmdによってmarkdownをjsonへ変換
-Nuxt.jsプロジェクトのルートディレクトリにて
-```shell
-yarn md
-```
+This directory contains your static files.
+Each file inside this directory is mapped to `/`.
+Thus you'd want to delete this README.md before deploying to production.
 
-2. jsonからブログ記事全体のsummaryを出力
-Nuxt.jsプロジェクトのルートディレクトリにて
-```shell
-ts-node posts_edit.ts
-```
+Example: `/static/robots.txt` is mapped as `/robots.txt`.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/assets#static).
