@@ -31,7 +31,8 @@
     "nuxt": "^2.14.6",
     "processmd": "^4.6.0",
     "sass-loader": "^10.1.0",
-    "webpack-bundle-analyzer": "^4.3.0"
+    "webpack-bundle-analyzer": "^4.3.0",
+    "yaml-loader": "^0.6.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",

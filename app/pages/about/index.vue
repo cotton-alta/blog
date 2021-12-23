@@ -15,6 +15,7 @@
 import Vue from 'vue';
 import ProfileImg from '~/components/ui/ProfileImg.vue';
 import PageHeadline from '~/components/ui/PageHeadline.vue';
+import settings from './../../settings.yml';
 
 export default Vue.extend({
   components: {
@@ -23,8 +24,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      handlename: 'コットン',
-      description: '東京のとある大学の学部4年生です。webエンジニアになるため日々勉強をしています。個人開発だけではなくチーム開発にも積極的に取り組んでいます。'
+      handlename: settings.user_name,
+      description: settings.self_introduction
     };
   }
 });

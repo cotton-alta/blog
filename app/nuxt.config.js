@@ -1,3 +1,5 @@
+import settings from './settings.yml';
+
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
@@ -7,11 +9,11 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'コットンの備忘録',
+    title: settings.blog_title,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '技術や旅行の記事等々' }
+      { hid: 'description', name: 'description', content: settings.description }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -76,6 +78,13 @@ export default {
   build: {
     analyze: {
       analyzerMode: 'static'
+    },
+    extend(config) {
+      config.module.rules.push({
+        test: /\.ya?ml$/,
+        type: 'json',
+        use: 'yaml-loader'
+      });
     }
   }
 }
