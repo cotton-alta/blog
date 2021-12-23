@@ -1,15 +1,15 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="light" variant="light">
-      <b-navbar-brand href="/">コットンの備忘録</b-navbar-brand>
+      <b-navbar-brand :href="base_url">コットンの備忘録</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse">
       </b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="/">Home</b-nav-item>
-          <b-nav-item href="/about">About</b-nav-item>
+          <b-nav-item :href="base_url">Home</b-nav-item>
+          <b-nav-item :href="about_url">About</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -20,6 +20,14 @@
 import Vue from "vue";
 
 export default Vue.extend({
+  data() {
+    const base_url = process.env.BASE_URL;
+    const about_url = `${base_url}about`;
+    return {
+      base_url,
+      about_url
+    }
+  }
 });
 </script>
 

@@ -1,5 +1,3 @@
-const baseRoute = env => (env === 'GH_PAGES' ? '/blog/' : '/');
-
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
@@ -22,7 +20,7 @@ export default {
   },
 
   router: {
-    base: baseRoute(process.env.DEPLOY_ENV)
+    base: process.env.BASE_URL
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -43,7 +41,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    '@nuxtjs/google-gtag'
+    '@nuxtjs/google-gtag',
+    '@nuxtjs/dotenv'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
